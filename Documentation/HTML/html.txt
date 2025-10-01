@@ -1,93 +1,251 @@
-<!DOCTYPE html>  
-This is the doctype declaration.  
-It is not part of the HTML itself but a declaration that tells the browser to 
-use HTML5 standards.  
-Using the doctype ensures that the page is rendered in standards mode, 
-following HTML5 rules.  
-Without it, the browser may fall back to quirks mode, which can cause 
-inconsistent rendering across different browsers.
+HTML Cheat Sheet & Performance Guide
 
-meta tag 
-  meta tag provides metadata about a webpage.
-  Always used inside <head>.
-  Uses: character set, viewport, SEO, auto-refresh, social media preview, 
-  browser compatibility.
+1. Doctype
+<!DOCTYPE html>
+- Declares the document type.
+- Ensures the browser renders the page in HTML5 standards mode.
+- Without it, browsers may use quirks mode, causing inconsistent rendering.
 
-Tag & Element
-A tag is a keyword enclosed within angle brackets.
-Types of tags: Opening tag → <p>, Closing tag → </p>
-Self-closing (void) tag → <br>, <img>, <hr>, <input>
+------------------------------------------------------------
 
-An element is the complete structure in HTML.
-Structure: Opening tag + Content + Closing tag
-Example: <p>Hello World</p>
-For self-closing tags, the element is just that single tag (no content).
-Example: <img src="demo.jpg" alt="image">
+2. Meta Tags
+- Provide metadata about a webpage.
+- Always used inside <head>.
+Examples:
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Webpage description">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="My Blog Post">
+  <meta name="twitter:card" content="summary_large_image">
 
-attributes:-
-  attributes is extra information about the tag 
-  it apply on the opening tag 
-  example:- applying the class, style attribute on the any element 
-  applying the attribute on the image tag like src , alt, height etc
+------------------------------------------------------------
 
-tags 
-    heading -> h1, h2 ,h3 ,h4, h5, h6
-    paragraph -> p
-    order/ unorder list -> ol, ul, li
-    definition list, term, description -> dl, dl, dd
-    break -> br, hr
-    anchor -> a 
-    link -> link tag used to link external resources
-    hyperlinks -> href, clickable links text, image through the external web pages
-    media element -> audio, video
+3. Tags vs Elements
+- Tag: Markup keyword inside angle brackets.
+  Opening: <p>, Closing: </p>, Self-closing: <br>, <img>, <hr>, <input>
+- Element: Complete structure → <p>Hello</p>
 
-    table -> <table>, <tr>, <td>, <th>
-    forms 
+------------------------------------------------------------
 
-semantics tags
-    semantics tags describe the meaning of content inside them, not just presentation
-    example header describes the header of the webpage, but div doesn't describe
-            about the content
-    header -> Heading of the page
-    footer -> footer of the page
-    main -> unique pr page
-    section -> standalone sections like chapter
-    article -> self content piece like blogs, comment, post
-    aside -> side content like sidebar
-    nav -> navigation link like menus and tab content 
-    figure -> self contained media like image diagram chart
-    figcaption -> caption/description
-    time -> time
-    mark -> highlight or marked texted
-    address -> contact information
+4. Attributes
+- Extra info applied to tags.
+Example:
+  <img src="demo.jpg" alt="image" height="200">
 
-form 
-    <input type="text">
-    <input type="email">
-    <input type="password">
-    <input type="number" min="1" max="10" step="1">
-    <input type="date">
-    <input type="file" multiple>
-    <input type="checkbox">
-    <input type="radio" name="gender">
-    <input type="range" min="0" max="100">
-    <input type="color">
+------------------------------------------------------------
 
-    <label> → associates text with input (for attribute must match input id).
-    <textarea> → multi-line text.
-    <select> <option> → dropdowns.
-    <button> → submit, reset, or custom actions.
-    <fieldset> & <legend> → group form controls for accessibility.
+5. Common Tags
+- Headings: h1 → h6
+- Paragraph: p
+- Lists: ol, ul, li, dl, dt, dd
+- Breaks: br, hr
+- Links: <a>, <link>
+- Media: <img>, <audio>, <video>
+- Tables: <table>, <tr>, <td>, <th>
+- Forms: <form>, <input>, <label>, <button>, etc.
 
-Accessibility (a11y) in HTML Cheat Sheet
-    Makes web usable for people with disabilities (vision, hearing, motor, cognitive).
-    Required for legal compliance WCAG
-    Improves SEO & overall usability
+------------------------------------------------------------
 
-    Always use alt on images
-    Associate labels with inputs
-    keyword and navigation
-    Roles and ARIA
-    color contrast ->  4.5:1
+6. Semantic Tags
+<header>, <footer>, <main>, <section>, <article>, <aside>, <nav>,
+<figure>, <figcaption>, <time>, <mark>, <address>
 
-performance 
+------------------------------------------------------------
+
+7. Forms & inputs
+<input type="text">, <input type="email">, <input type="password">
+<textarea>, <select>, <option>, <button>, <fieldset>, <legend>
+  Forms & Validation
+    novalidate, required, pattern, type="email/number/url".
+    Constraint validation API (checkValidity(), reportValidity()).
+    Custom validation with setCustomValidity.
+
+------------------------------------------------------------
+
+8. Accessibility (A11y)
+- Use alt on images
+- Associate labels with inputs
+- Maintain heading order
+- Provide keyboard navigation
+- Roles and ARIA when needed
+- Color contrast ≥ 4.5:1
+
+------------------------------------------------------------
+
+9. Shadow DOM
+Encapsulation for styles & DOM:
+<div id="host"></div>
+<script>
+  const host = document.getElementById('host');
+  const shadow = host.attachShadow({ mode: 'open' });
+  shadow.innerHTML = `<p>Shadow content</p>`;
+</script>
+
+------------------------------------------------------------
+
+10. ContentEditable
+<div contenteditable="true">Edit me!</div>
+
+------------------------------------------------------------
+
+11. Drag & Drop API
+<div draggable="true" id="dragMe">Drag me</div>
+<script>
+  const drag = document.getElementById('dragMe');
+  drag.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text/plain', 'dragging');
+  });
+</script>
+
+------------------------------------------------------------
+
+12. Microdata & Structured Data
+<div itemscope itemtype="http://schema.org/Person">
+  <span itemprop="name">John Doe</span>
+  <span itemprop="jobTitle">Frontend Developer</span>
+</div>
+
+------------------------------------------------------------
+
+13. Performance Optimization
+
+Critical Rendering Path:
+1. Parse HTML → DOM
+2. Parse CSS → CSSOM
+3. Combine → Render Tree
+4. Layout (Reflow)
+5. Paint (Repaint)
+
+Script Loading:
+- <script>: blocks parsing
+- <script async>: loads parallel, executes when ready
+- <script defer>: loads parallel, executes after parsing
+
+Resource Loading:
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="prefetch" href="next-page.html">
+  <link rel="dns-prefetch" href="//example.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+Images & Media:
+- Responsive images (srcset, sizes)
+- Lazy loading: <img loading="lazy">
+- Use WebP/AVIF formats
+
+Rendering & SEO:
+- Inline critical CSS only
+- Place scripts at end of body or with defer
+- Semantic HTML for better parsing
+- <title> and <meta name="description">
+- Structured data for SEO
+
+Tools:
+- Lighthouse, WebPageTest, PageSpeed Insights
+
+------------------------------------------------------------
+
+14. Reflow & Repaint
+- Reflow (Layout): triggered when geometry/structure changes
+  (size, position, font, margins, adding/removing DOM)
+- Repaint: triggered when visual style changes only
+  (color, background, visibility, shadows)
+
+Performance Tips:
+- Batch DOM updates
+- Use classList instead of multiple inline style changes
+- Use transform: translate() for animations (less reflow)
+- Absolute/fixed elements reflow less
+- Layout Thrashing: Multiple reads/writes to the DOM in loops → causes repeated reflows.
+    Tip: batch reads/writes.
+- Compositing: transform & opacity are GPU-accelerated → repaint-free animations.
+    CSS Containment: contain: layout style can limit reflow scope.
+- Font Loading: FOUT vs FOIT (Flash of Unstyled/Invisible Text).
+- HTTP/2 Push & Resource Hints (preload, prefetch, preconnect) for critical assets.
+
+------------------------------------------------------------
+
+16. HTML5 APIs:
+- Canvas, localStorage, sessionStorage
+- Geolocation, Web Workers, WebSockets, Fetch API
+
+------------------------------------------------------------
+
+17. Iframes & Embeds:
+- <iframe>, <embed>, <object>
+- Use sandbox, loading="lazy" for security & performance
+
+------------------------------------------------------------
+
+18. HTML Entities:
+&lt;, &gt;, &amp;, &quot;, &nbsp;
+
+------------------------------------------------------------
+
+19. Progressive Enhancement vs Graceful Degradation:
+- PE: build from semantic HTML → CSS → JS
+- GD: build advanced app but allow fallback
+
+------------------------------------------------------------
+
+20. Security:
+- Escape user input
+- target="_blank" → add rel="noopener noreferrer"
+- Use CSP (Content Security Policy)
+
+------------------------------------------------------------
+
+21. Custom Data Attributes:
+<button data-id="123" data-role="admin">Click</button>
+JS: element.dataset.id
+
+------------------------------------------------------------
+
+22. Inline vs Block Elements:
+- Block: div, p, section
+- Inline: span, a, strong
+
+------------------------------------------------------------
+
+23. Deprecated Tags (avoid):
+<font>, <center>, <marquee>, <b>, <i>
+
+------------------------------------------------------------
+
+24. Global Attributes
+- id, class, style, title, lang, dir, hidden, data-*, tabindex, contenteditable
+
+------------------------------------------------------------
+
+25. Multimedia Enhancements
+    <video> & <audio> controls, autoplay, loop, muted, preload
+    <video src="video.mp4" controls autoplay loop muted></video>
+    <audio src="audio.mp3" controls></audio>
+    Subtitles / captions: <track kind="subtitles">
+    Poster image for videos: <video poster="image.jpg">
+
+------------------------------------------------------------
+
+26. Responsive & Mobile HTML
+    viewport meta tag is mandatory:
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    Use <picture> with <source> for responsive images:
+    <picture>
+      <source media="(max-width: 600px)" srcset="small.jpg">
+      <img src="large.jpg" alt="Responsive image">
+    </picture>
+
+------------------------------------------------------------
+
+27. Global Attributes
+    id, class, style, title, lang, dir, hidden, data-*, tabindex, contenteditable
+
+
+28. Intersection Observer:
+    Purpose: Detect when an element enters/leaves viewport or a container.
+      Key Points:
+        root: container to observe (null = viewport)
+        threshold: how much of element must be visible (0–1)
+        rootMargin: margin around root
+        Use for lazy loading, animations, infinite scroll, ad tracking
+        Advantage: More performant than scroll events; avoids layout thrashing.
