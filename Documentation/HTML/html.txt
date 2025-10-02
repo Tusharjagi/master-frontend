@@ -42,7 +42,7 @@ Example:
 - Breaks: br, hr
 - Links: <a>, <link>
 - Media: <img>, <audio>, <video>
-- Tables: <table>, <tr>, <td>, <th>
+- Tables: <table>, <tr>, <th>, <td>
 - Forms: <form>, <input>, <label>, <button>, etc.
 
 ------------------------------------------------------------
