@@ -71,6 +71,22 @@ Example:
 - Roles and ARIA when needed
 - Color contrast ≥ 4.5:1
 
+  4 principles: POUR:
+    Perceivable -> Text alternatives for images (alt), captions for videos  
+    Operable -> Keyboard navigation, clear focus states (tabindex="0" & tabindex="-1" {programmatic focus})
+    Understandable -> Clear labels, consistent navigation
+    Robust -> Proper semantic HTML, ARIA attributes
+
+  ARIA (Accessible Rich Internet Applications)
+    Describe the purpose of elements to assistive tech.
+
+    Custom button with role="button" and aria-pressed.
+    Custom checkbox with role="checkbox" and aria-checked.
+    Accordion / collapsible section with aria-expanded and aria-controls.
+    Tabs with role="tablist", role="tab", role="tabpanel", aria-selected, aria-controls.
+    Live region / alert with role="alert".
+    Slider with role="slider", aria-valuemin, aria-valuemax, aria-valuenow, keyboard control.  
+
 ------------------------------------------------------------
 
 9. Shadow DOM
