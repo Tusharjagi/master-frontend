@@ -103,6 +103,8 @@ Encapsulation for styles & DOM:
 10. ContentEditable
 <div contenteditable="true">Edit me!</div>
 
+Example code editors in the browsers
+
 ------------------------------------------------------------
 
 11. Drag & Drop API
