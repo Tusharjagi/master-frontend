@@ -267,3 +267,11 @@ JS: element.dataset.id
         rootMargin: margin around root
         Use for lazy loading, animations, infinite scroll, ad tracking
         Advantage: More performant than scroll events; avoids layout thrashing.
+
+29. DOM: 
+    DOM traversal 
+    DOM creation 
+    DOM manipulations
+    Accessing element/node properties
+
+30. Event Bubbling / Event delegation 
