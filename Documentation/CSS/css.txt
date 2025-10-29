@@ -1,0 +1,209 @@
+1. What is CSS & how it works with HTML ?
+
+2. Basics 
+    CSS syntax (selector, properties, value)
+    CSS inclusion methods (inline, internal <style>, External styleSheet) 
+    CSS comments
+  - The concept of Cascading (priority order) 
+      Cascading = The decision process (importance + specificity + order).
+    - Specificity hierarchy:
+      Inline styles > ID > Class > Element 
+      !important
+      Inheritable properties (like color, font-family)
+      Specificity = The numerical ranking within that process.
+      Specificity (How “Strong” a Selector Is)
+        -> Inline > ID > Class > Element > Inheritance > Default
+      CSS Specificity & Inheritance
+
+3. Selectors 
+  - Basic Selectors:
+      Element selector (div, p)
+      Class selector (.btn)
+      ID selector (#header)
+      Universal selector (*)
+      Grouping selectors (h1, h2, p {})
+  - Combinators:
+      Descendant (div p)
+      Child (div > p)
+      Adjacent sibling (div + p)
+      General sibling (div ~ p)
+  - Attribute Selectors:
+      [type="text"]
+      [href^="https"]
+      [href$=".pdf"]
+      [class*="btn"]
+  - Pseudo-classes:
+      :hover, :focus, :active
+      :visited, :link
+      :nth-child(), :nth-of-type()
+      :first-child, :last-child, :not()
+  - Pseudo-elements:
+      ::before, ::after
+      ::first-line, ::first-letter
+      ::selection, ::placeholder
+
+4. Colors & Units
+
+  - Color formats:
+    Named (red)
+    HEX (#ff0000)
+    RGB (rgb(255,0,0))
+    RGBA (rgba(255,0,0,0.5))
+    HSL/HSLA (hsl(0, 100%, 50%))
+  - Units:
+    Absolute: px, cm, in
+    Relative: em, rem, %, vw, vh
+    CSS Functions: calc(), min(), max(), clamp()
+
+5. The Box Model
+    Content, Padding, Border, Margin
+    box-sizing: content-box | border-box
+    Margin collapsing
+    Outline vs Border
+
+6. Display:
+  - display: block | inline | inline-block | flex | grid | none
+  - Positioning:
+      position: static | relative | absolute | fixed | sticky
+      top, right, bottom, left, z-index
+  - Float & Clear:
+      float: left | right
+      clear: both
+      clearfix hack
+  - Overflow:
+      overflow: visible | hidden | scroll | auto
+  - Centering Elements:
+      Using margin: auto
+      Using Flexbox/Grid centering
+      Transform + Translate
+        top:50%; left:50%; transform: translate(-50%,-50%)
+
+7. Typography
+    font-family, font-size, font-weight
+    Web-safe fonts & Google Fonts
+    font-style, text-transform, text-decoration
+    line-height, letter-spacing, word-spacing
+    text-align, vertical-align
+    Responsive font sizes (clamp(), vw units)
+
+8. Backgrounds & Borders
+    background-color, background-image
+    background-repeat, background-position
+    background-size, background-attachment
+    border, border-radius, border-image
+    box-shadow
+
+9. Gradients
+    Linear gradients
+    Radial gradients
+    Conic gradients
+    Gradient transparency 
+
+10. Transitions & Animations
+    transition-property, transition-duration, transition-delay, transition-timing-function
+  - Keyframe animations:
+      @keyframes move {
+        from { transform: translateX(0); }
+        to { transform: translateX(100px); }
+      }
+    animation-name, 
+    animation-duration, 
+    animation-iteration-count,
+    animation-delay,
+    animation-fill-mode,
+    animation-direction
+
+11. Transformations
+    transform: translate(), scale(), rotate(), skew()
+    transform-origin
+    perspective, 3D transforms
+
+12. Flexbox
+  - Container properties:
+    display: flex
+      flex-direction, flex-wrap, justify-content, 
+      align-items, align-content
+
+  - Item properties:
+      order, flex-grow, flex-shrink, flex-basis, align-self
+
+13. CSS Grid
+    display: grid
+    grid-template-columns, grid-template-rows
+    gap, row-gap, column-gap
+    grid-template-areas
+    justify-items, align-items, justify-content, align-content
+    grid-auto-flow
+    Responsive grids with repeat() and minmax()
+
+14. Responsive Design
+    Media queries (@media screen and (max-width: 768px))
+    Mobile-first vs Desktop-first
+    Viewport meta tag
+    Responsive units (vw, vh, %)
+    Container queries (modern CSS feature)
+
+15. CSS Variables (Custom Properties) Theme tokens
+    :root {
+      --main-color: #3498db;
+    }
+    button {
+      color: var(--main-color);
+    }
+
+    Variable scoping & theming
+    Dynamic updates with JS (element.style.setProperty())
+
+16. Modern Features & Functions
+    @supports (feature queries)
+    :has() (parent selector)
+    :is() / :where() for simplifying selectors
+    aspect-ratio
+    object-fit, object-position
+    backdrop-filter
+    scroll-behavior: smooth
+    Logical properties (margin-inline, padding-block)
+
+17. CSS Architecture
+    BEM (Block-Element-Modifier)
+    OOCSS (Object-Oriented CSS)
+    SMACSS
+    Atomic CSS / Utility-first design
+
+18. Advanced Topics
+    CSS Modules (in React)
+    CSS-in-JS (styled-components, emotion)
+    Shadow DOM styling
+    Theming with variables
+    Cascade Layers (@layer)
+    Subgrid (new grid feature)
+
+19. Real-world Concepts
+    Dark mode with CSS variables
+    Print styles (@media print)
+    Accessibility (contrast, focus states)
+    Performance optimization (critical CSS, minification)
+    Using prefers-reduced-motion
+
+20. Performance Optimization
+    Critical CSS extraction
+    Lazy loading images
+    Avoiding reflows/repaints
+    Using shorthand & reducing selectors depth
+    CSS minification
+    will-change
+
+21. CSS Houdini API (custom paint worklets)
+    Container queries (next-gen responsive design)
+    View transitions API (page animation between routes)
+    Logical properties (margin-inline, padding-block)
+    Modern media features:
+    prefers-color-scheme
+    prefers-reduced-motion
+    dynamic-range
+    Cascade Layers (@layer base, theme, overrides)
+
+22. Filters & Blending
+    mix-blend-mode, background-blend-mode
+    Filter stack composition
+    Layer blending for UI depth
