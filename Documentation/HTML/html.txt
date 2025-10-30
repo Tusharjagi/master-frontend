@@ -64,6 +64,8 @@ Example:
 ------------------------------------------------------------
 
 8. Accessibility (A11y)
+  a11y defines that people who want to use assistive technologies like screen readers, 
+  voice commands and keyboard navigation they can still interact application. 
 - Use alt on images
 - Associate labels with inputs
 - Maintain heading order
