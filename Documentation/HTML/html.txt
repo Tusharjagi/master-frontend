@@ -92,7 +92,10 @@ Example:
 ------------------------------------------------------------
 
 9. Shadow DOM
-Encapsulation for styles & DOM:
+  - Shadow DOM is a web standard that provides encapsulation for a component’s HTML,
+   CSS, and JavaScript by attaching a hidden, isolated DOM tree to an element. This 
+   prevents style and script conflicts with the rest of the document, enabling the 
+   creation of reusable and self-contained custom web components.
 <div id="host"></div>
 <script>
   const host = document.getElementById('host');
